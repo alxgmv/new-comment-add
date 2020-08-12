@@ -23,7 +23,9 @@ export default class App extends Component {
       author,
       commentText,
       date: new Date().toLocaleString(),
-      id: this.maxId++
+      id: this.maxId++,
+      newAuthor: '',
+      newComment:''
     }
   }
 
@@ -40,12 +42,12 @@ export default class App extends Component {
   render() {
     return (
     <div>
-
       <CommentList
         fields={this.state.fields}
         />
       <AddCommentForm
         onCommentAdd={this.addComment}
+        input={this.state.fields}
         />
     </div>
   )}

@@ -4,33 +4,38 @@ import './add-comment-form.css'
 
 export default class AddCommentForm extends Component {
 
-  state = {
-    fields: [
-      {
-        author:'',
-        commentText:''
-      }
-    ]
-  };
+  // state = {
+  //   inputs: [
+  //     {
+  //       author:'',
+  //       commentText:''
+  //     }
+  //   ]
+  // };
+
 
   handleChange_author = (e) => {
+    const { newAuthor} = this.props;
     this.setState({
-      author: e.target.value
+      newAuthor: e.target.value
     });
   };
 
   handleChange_text = (e) => {
+    const { newComment} = this.props;
     this.setState({
-      commentText: e.target.value
+      newComment: e.target.value
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onCommentAdd(this.state.fields.author, this.state.fields.commentText);
+    this.props.onCommentAdd(this.props.author, this.props.author);
+    console.log(this.props);
+    console.log(this.props.newAuthor);
     this.setState({
-      author:'',
-      text:''
+      newAuthor:'',
+      newComment:''
     })
   }
 
@@ -47,7 +52,7 @@ export default class AddCommentForm extends Component {
             className="CommentInput"
             type="text"
             placeholder="Name"
-            value={this.state.fields.author}
+            value={this.props.newAuthor}
             onChange={this.handleChange_author}
           />
         </label>
@@ -58,7 +63,7 @@ export default class AddCommentForm extends Component {
             className="CommentText"
             type="submit"
             placeholder="Comment text"
-            value={this.state.fields.commentText}
+            value={this.props.newComment}
             onChange={this.handleChange_text}
           />
         </label>

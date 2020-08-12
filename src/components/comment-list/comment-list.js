@@ -1,17 +1,14 @@
 import React from 'react';
 
-import CommentListItem from '../comment-list-item/comment-list-item'
-
-const CommentList = ({ fields }) => {
-  const elements = fields.map((field) => {
+const CommentList = ({ fields, id }) => {
+  const elements = fields.map((field, id) => {
     return (
-      <li key={field.id}>
-      <CommentListItem
-        author={field.author}
-        commentText={field.commentText}
-        date={field.date}
-      />
-      </li>
+      <ul key={id}>
+        <li>{field.author}</li>
+        <li>{field.commentText}</li>
+        <li>{field.date}</li>
+
+      </ul>
     )}
   )
   return (
