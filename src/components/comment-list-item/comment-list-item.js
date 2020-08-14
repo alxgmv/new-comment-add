@@ -1,10 +1,21 @@
-import React , {Component} from 'react';
+import React from 'react';
 
-const CommentListItem  = ({ inputs }) => {
+import './comment-list-item.css'
+
+const CommentListItem  = ({ author, commentText, date, onDeleted }) => {
     return (
-      <div>
-      { inputs }
-      </div>
+    <li>
+      <article>
+        <h3>{author}</h3>
+        <p>{commentText}</p>
+        <small>{date}</small>
+      </article>
+      <button type="button"
+                className="btn btn-outline-danger btn-sm"
+                onClick={onDeleted}>
+          <i className="fa fa-trash-o" />
+        </button>
+    </li>
     )
 }
 
