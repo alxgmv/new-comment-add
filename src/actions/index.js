@@ -1,9 +1,7 @@
-let nextId = 3;
-
 export const addComment = (author, commentText) => {
   return {
     type: 'ADD_COMMENT',
-    id: nextId++,
+    id: `id${(+new Date()).toString(16)}`,
     author,
     commentText
   }

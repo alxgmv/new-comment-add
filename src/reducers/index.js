@@ -9,7 +9,7 @@ console.log( action.type, action.id )
                     date: new Date().toLocaleString() }
       ]
     case 'DELETE_COMMENT':
-      return [...state.slice(0, action.id), ...state.slice(action.id+1)];
+      return state.filter(item => item.id !==action.id);
 
 
 
